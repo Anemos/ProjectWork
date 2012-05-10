@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="D:/J2EE/IDE/eclipse/plugins/org.apache.ant_1.8.2.v20110505-1300/lib/ant.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
