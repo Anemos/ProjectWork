@@ -1,0 +1,48 @@
+<project name="kdac_backup" basedir="." default="dist">
+  <description>kdac backup script</description>
+  
+  <!-- ============= -->
+  <!-- === CLEAN === -->
+  <!-- ============= -->
+  <target name="clean" description="removes all backup files">
+    <delete dir="e:/kdac_backup" />
+    <tstamp>
+      <format property="DAY" pattern="MM/dd/yyyy"/> <!-- date format 지정 -->
+    </tstamp>
+    <property name="TIME" value="01:00 AM"/>
+    <property name="buildDate" value="${DAY} ${TIME}"/>
+    <taskdef name="pbldump"
+             classpath="E:\pbldump-1.3.1stable\AntPblDumpTask.jar"
+             classname="GeneratePbldump" />
+    <pbldump/>
+  </target>
+  
+  <!-- ============ -->
+  <!-- === DIST === -->
+  <!-- ============ -->
+  <target name="dist" depends="clean">
+    <mkdir dir="e:/kdac_backup" />
+    <copy todir="e:/kdac_backup">
+      <fileset dir="c:/kdac">
+				<exclude name="**/*.dll" />
+				<exclude name="**/*.pbd" />
+				<exclude name="**/*.bak" />
+				<include name="**" />
+			</fileset>
+    </copy>
+    <copy todir="C:\Documents and Settings\micehole\Kdac-Source" verbose="true" overwrite="true" encoding="UTF-8">
+      <fileset dir="c:/kdac">
+				<include name="**/*.pbl" />
+				<include name="**/*.sql" />
+				<exclude name="**" />
+			  <date datetime="${buildDate}" when="after"/>
+			</fileset>
+    </copy>
+    <echo>${buildDate}</echo>
+    <move todir="C:\Documents and Settings\micehole\Kdac-Source\PBL\Source_Pb" overwrite="true" encoding="UTF-8">
+      <fileset dir="e:\">
+				<include name="*.sr?" />
+			</fileset>
+    </move>
+  </target>
+</project>
