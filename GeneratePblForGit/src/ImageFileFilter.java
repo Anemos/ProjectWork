@@ -14,7 +14,10 @@ public class ImageFileFilter implements FileFilter
     {
       if ( (file.getName().toLowerCase().endsWith(extension)) || file.isDirectory() )
       {
-        return true;
+        if (file.getName().startsWith("kdac"))
+        	return false;
+        else
+        	return true;
       }
     }
     return false;
