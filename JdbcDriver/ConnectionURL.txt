@@ -1,0 +1,29 @@
+# JDBC - JTDS
+# jtds-1.0.3.jar
+driver=net.sourceforge.jtds.jdbc.Driver
+url=jdbc:jtds:sqlserver://[ip]/cbdtest
+username=cbd
+password=cbdtest
+
+# Jdbc -MsSql db Driver
+# mssqlserver.jar, msbase.jar, msutil.jar
+driver=com.microsoft.jdbc.sqlserver.SQLServerDriver
+url=jdbc:microsoft:sqlserver://[ip]:1433;DatabaseName=cbdtest
+username=cbd
+password=cbdtest
+
+# DB2 Driver
+# jt400.jar
+databasename=I520
+driver=com.ibm.as400.access.AS400JDBCDriver
+url=jdbc:as400://[ip]/PBWIP
+username=id
+password=?
+
+# MYSQL Driver
+# mysql-connector-java-5.0.4.jar
+databasename=JPBMDS
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/JbpmDB?characterEncoding=UTF-8
+username=id
+password=?
