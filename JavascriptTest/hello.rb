@@ -1,6 +1,6 @@
 class HiWorld
   def self.hello
-    puts "Hello World"
+    puts "Hello World of ruby community!"
   end
 end
 
