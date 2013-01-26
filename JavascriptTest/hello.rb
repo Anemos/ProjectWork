@@ -3,6 +3,7 @@ class HelloWorld
     puts "Hello World of ruby community!"
     puts "Welcome!"
   end
+  puts welcome statement
 end
 
 HelloWorld.hello
