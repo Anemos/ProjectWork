@@ -1,2 +1,6 @@
-HelloWorldHaHa
+<<<<<<< HEAD
+HiWorld
+=======
+HiWorld
+>>>>>>> change_class
 This is test file for merge command.
