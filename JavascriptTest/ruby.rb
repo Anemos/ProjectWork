@@ -1,6 +1,6 @@
-class HellWorld
+class HelloWorld
   def self.hello
-    puts "Hello World for ruby"
+    puts "Hello World"
   end
 end
 
