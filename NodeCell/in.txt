@@ -1,0 +1,69 @@
+
+간단한것 같지만 간단하지 않은것 같습니다.
+
+루트 URL로 접근시에 업로드 할수 있는 웹페이지를 Response 해 줍니다.
+
+웹유저가 업로드 할 파일을 선택하고 제출버튼을 클릭했을때 Node.js 에서 처리해야 합니다.
+
+Http Methos: post, enctype = Multipart/form-data 로 제출형식을 설정합니다.
+
+1. Request객체에 있는 이벤트를 가지고 데이타를 분리해 낼수 있습니다. data, end 이벤트를 사용합니다.
+
+2. formidable 모듈을 사용해서 파일을 저장할수 있습니다.
+
+여기서 접근하기 쉽도록  저장될 폴더를 일단 지정합니다.
+
+formidable.uploadDir = "tmp";
+
+그리고 renameSync 을 해서 최종저장 하면 될듯 한데 아직 해보지는 않았습니다.
+
+
+
+Readable Streams
+
+이벤트 : data, end, error, close
+
+메소드 : pause, resume, end, destroy
+
+writable Streams
+
+이벤트 : drain, error, close, pause, resume
+
+메소드 : write, end, destroy
+
+
+
+readable.pipe(writable)
+
+Readable streams can be piped to writable streams. and vice verse.
+
+on('data') => write(), on('end') => end(), on('drain') => resume(), on('close') => destroy(), 
+
+on('error') => error(), on('pause') => pause()
+
+
+
+filesystem 에서 writeStream 이라는 메소드가 있는데 http 를 통해서 바이너리 데이타가 이동할때 사용해야 할듯 합니다.
+
+readStream 사용하는 방법
+
+var http = require('http');
+
+var fs   = require('fs');
+
+var util = require('util');
+
+http.createServer(function(req, res) {
+
+  var filename = __dirname+req.url; 
+
+  var readStream = fs.createReadStream(filename);
+
+  util.pump(readStream, res);
+
+}).listen(8080);
+
+writeStream 사용하는 방법
+
+
+
