@@ -5,6 +5,9 @@
     "private": true,
     "dependencies": {
         "express": "3.x",
-        "formidable": "1.x"
+        "formidable": "1.x",
+        "jade": "*",
+        "stylus": "*",
+        "nib": "*"
     }
 }
