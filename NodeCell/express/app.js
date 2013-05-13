@@ -11,6 +11,8 @@ var express = require('express')
 
 var app = express();
 
+var smartbid = require('./routes/smartbid')(app);
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
