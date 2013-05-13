@@ -15,6 +15,10 @@ exports.home = function(req, res){
 	}
 };
 
+exports.upload = function(req, res){
+	res.render('upload', {title: 'HTML5 Drag and Drop Multiple File Uploader | Script Tutorials'})
+};
+
 exports.home_post_handler = function(req, res){
 	username = req.body.username || 'Anonymous';
 	req.session.username = username;

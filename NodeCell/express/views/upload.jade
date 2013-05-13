@@ -1,0 +1,15 @@
+extends layout
+block content
+  header
+    h2 HTML5 Drag and Drop Multiple File Uploader
+    a(href="/").stuts Back to original tutorial on <span> Script Tutorials </span>
+  div.container
+    div.contr <h2> Drag and Drop your images to 'Drop Area' (up to 5 files at a time, size - under 256kb)</h2>
+    div.upload_form_cont
+      #dropArea Drop Area
+      div.info
+        div Files left: <span id="count">0</span>
+        div Destination url: <input id="url" value="/upload"/>
+        h2 Result:
+        #result
+        <canvas width="500" height="20"></canvas>
