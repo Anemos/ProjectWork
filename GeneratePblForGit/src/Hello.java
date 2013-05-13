@@ -1,12 +1,10 @@
-import java.util.List;
-
 import twitter4j.ResponseList;
-import twitter4j.Status;
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-import twitter4j.User;
+import twitter4j.UserList;
+import twitter4j.auth.AccessToken;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
@@ -44,11 +42,24 @@ public class Hello {
 			Mongo m = new Mongo();
 			DB db = m.getDB("twitter_stats");
 			DBCollection coll = db.getCollection("retweets");
-
-			Twitter twitter = new TwitterFactory().getInstance("<some user name>", "<some password>");
+			
+			Twitter twitter = new TwitterFactory().getInstance();
+			twitter.setOAuthConsumer("yEBno90OUb9T0MwkzqlzpQ", 
+			          "cdMq8s3h0bM7ovRMTx7FHk9LddelOD4ukA0RIU344M");
+			AccessToken accessToken = new AccessToken("57646743-1y6YSN0C52J0sLfK91x1xwDi89LJY4nPA3mlnsX95", "tI3WSEnmIJ9Yt29yO2sWXVKXM57Dr1YVL3lAj3dyC8");
+			twitter.setOAuthAccessToken(accessToken);
+			
+			ResponseList<UserList> lists = twitter.getUserLists("kissanemos");
+            for (UserList list : lists) {
+                System.out.println("id:" + list.getId() + ", name:" + list.getName() + ", description:"
+                        + list.getDescription() + ", slug:" + list.getSlug() + "");
+            }
+            System.exit(0);
+			
+			/*
 			List<Status> statuses = twitter.getRetweetsOfMe();
 			for (Status status : statuses) { 
-			  ResponseList<User> users = twitter.getRetweetedBy(status.getId());
+			  ResponseList<User> users = twitter.lookupUsers("kissanemos");
 			  
 			  for (User user : users) {
 			    BasicDBObject doc = new BasicDBObject();
@@ -59,8 +70,11 @@ public class Hello {
 			    coll.insert(doc);
 			 }
 			}
-		} catch( Exception e) {
-			System.out.println(e.toString());
+			*/
+		} catch( Exception te ) {
+			te.printStackTrace();
+            System.out.println("Failed to list the lists: " + te.getMessage());
+            System.exit(-1);
 		}
 	}
 
