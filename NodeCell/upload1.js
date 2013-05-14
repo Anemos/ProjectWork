@@ -1,7 +1,8 @@
 var http = require('http')
 ,formidable = require('formidable')
 ,fs = require('fs')
- , util = require('util');
+,util = require('util')
+,path = require('path');
 
 http.createServer(function (req, res) {
   // set up some routes
@@ -36,6 +37,12 @@ http.createServer(function (req, res) {
                 console.error(err.message);
                 return;
               }
+              console.log('dirname ' + path.dirname(files.upload.path) + ' : ' + files.upload.name);
+              fs.rename(files.upload.path, path.dirname(files.upload.path) + '//' + files.upload.name, function(err) {
+                  if(err) {
+                	  console.log('rename failed ' + err);
+                  }
+                });
               res.writeHead(200, {'content-type': 'text/plain'});
               res.write('received upload:\n\n');
 

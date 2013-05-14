@@ -2,12 +2,13 @@ extends layout
 
 block content
   #wrapper
-    #logo
-      img(src='/images/logo.png')
     #display
       include userbar
-      
-      p The #{name.toLowerCase()} is one of the must-have items for any aspiring ninja. It costs just $#{price} on our store.
-      p Buy it today!
+      div.container
+        div.contr <h2> Drag and Drop your images to 'Drop Area' (up to 5 files at a time, size - under 256kb)</h2>
+        div.upload_form_cont
+          div.list_form_cont
+            p The #{name.toLowerCase()} is one of the must-have items for any aspiring ninja. It costs just $#{price} on our store.
+            p Buy it today!
       
     include footer

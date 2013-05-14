@@ -18,11 +18,11 @@ header {
     z-index:100;
 }
 header h2{
-    font-size: 19px;
+    font-size: 24px;
     font-weight: normal;
     left: 50%;
     margin-left: -400px;
-    padding: 25px 0;
+    padding: 20px 0;
     position: absolute;
     width: 540px;
 }
@@ -45,7 +45,7 @@ header .stuts span {
 
 .container {
     overflow:hidden;
-    width:960px;
+    width:100%;
     margin:20px auto;
 }
 .contr {
@@ -61,7 +61,6 @@ header .stuts span {
 .upload_form_cont {
     background: -moz-linear-gradient(#ffffff, #f2f2f2);
     background: -ms-linear-gradient(#ffffff, #f2f2f2);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
     background: -webkit-linear-gradient(#ffffff, #f2f2f2);
     background: -o-linear-gradient(#ffffff, #f2f2f2);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f2f2f2');
@@ -71,12 +70,22 @@ header .stuts span {
     color: #000;
     overflow: hidden;
 }
+.list_form_cont {
+    background-color: #DDDDDD;
+    border: 1px solid #DDDDDD;
+    float: left;
+    font-weight: bold;
+    height: 350px;
+    margin: 20px;
+    position: relative;
+    width: 780px;
+}
 .info {
     background-color: #EEEEEE;
     border: 1px solid #DDDDDD;
     float: left;
     font-weight: bold;
-    height: 530px;
+    height: 350px;
     margin: 20px;
     position: relative;
     width: 560px;
@@ -102,8 +111,8 @@ header .stuts span {
     float: left;
     font-size: 48px;
     font-weight: bold;
-    height: 530px;
-    line-height: 530px;
+    height: 350px;
+    line-height: 350px;
     margin: 20px;
     position: relative;
     text-align: center;

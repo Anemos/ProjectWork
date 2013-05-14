@@ -1,3 +1,8 @@
+var formidable = require('formidable')
+,fs = require('fs')
+,util = require('util')
+,path = require('path');
+
 // our 'database'
 var items = {
     SKN:{name:'Shuriken', price:100},
@@ -16,7 +21,23 @@ exports.home = function(req, res){
 };
 
 exports.upload = function(req, res){
-	res.render('upload', {title: 'HTML5 Drag and Drop Multiple File Uploader | Script Tutorials'})
+	if (req.method == 'POST') {
+        console.log("[200] " + req.method + " to " + req.url);
+        console.log(req.files);
+     // get the temporary location of the file
+        var tmp_path = req.files.myfile.path;
+        var target_path = './public/uploads/' + req.files.myfile.name;
+        fs.rename(tmp_path, target_path, function(err) {
+            if (err) throw err;
+            // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+            fs.unlink(tmp_path, function() {
+                if (err) throw err;
+                res.send('File uploaded to: ' + target_path + ' - ' + req.files.myfile.size + ' bytes');
+            });
+        });
+	} else {
+		res.render('upload', {title: 'File Upload'});
+    }
 };
 
 exports.home_post_handler = function(req, res){

@@ -2,14 +2,15 @@ extends layout
 
 block content
   #wrapper
-    #logo
-      img(src='/images/logo.png')
     #display
       include userbar
-        
-      -for (var id in items)
-        - var item = items[id]
-        div
-          a(href='/item/#{id}') #{item.name} - $#{item.price}
+      div.container
+        div.contr <h2> Drag and Drop your images to 'Drop Area' (up to 5 files at a time, size - under 256kb)</h2>
+        div.upload_form_cont
+          div.list_form_cont  
+            -for (var id in items)
+              - var item = items[id]
+              div
+                a(href='/item/#{id}') #{item.name} - $#{item.price}
       
     include footer
