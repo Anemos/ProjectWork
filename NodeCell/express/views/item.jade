@@ -5,10 +5,10 @@ block content
     #display
       include userbar
       div.container
-        div.contr <h2> Drag and Drop your images to 'Drop Area' (up to 5 files at a time, size - under 256kb)</h2>
+        div.contr <h2> Drag and Drop your images to 'Drop Area' (up to 5 files at a time, size - under 256MB)</h2>
         div.upload_form_cont
           div.list_form_cont
-            p The #{name.toLowerCase()} is one of the must-have items for any aspiring ninja. It costs just $#{price} on our store.
-            p Buy it today!
-      
+            p 파일명은  #{name.toLowerCase()} 입니다.  파일 사이즈는 #{size} Byte 입니다.
+            p 더 많은 정보는 준비중에 있습니다. 
+            a(href='/download/#{id}') 다운로드를 하실 경우에는 여기를 클릭하십시요  
     include footer

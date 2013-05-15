@@ -35,6 +35,7 @@ app.get('/item/:id', store.item);
 app.get('/page', store.page);
 app.get('/upload', store.upload);
 app.post('/upload', store.upload);
+app.get('/download/:id', store.download);
 app.get('/logout', function(req, res) {
     // delete the session variable
     delete req.session.username;

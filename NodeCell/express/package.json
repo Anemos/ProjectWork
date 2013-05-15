@@ -10,6 +10,8 @@
     "jade": "*",
     "formidable": "1.x",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "date-utils": "*",
+    "swift": "*"
   }
 }

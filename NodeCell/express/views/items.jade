@@ -11,6 +11,6 @@ block content
             -for (var id in items)
               - var item = items[id]
               div
-                a(href='/item/#{id}') #{item.name} - $#{item.price}
+                a(href='/item/#{id}') 파일명 : #{item.name} - 파일크기 : #{item.size} - 수정일시 : #{item.atime}
       
     include footer
